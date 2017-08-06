@@ -1,0 +1,21 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 70px;
+}
+
+.modal {
+  display: block !important;
+}
+
+.glyphicon {
+  font-size: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+img {
+  padding-right: 2px;
+}

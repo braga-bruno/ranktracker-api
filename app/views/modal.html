@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4>New Report</h4>
+</div>
+<form name="userForm" ng-submit="submitForm(userForm.$valid)">
+    <div class="modal-body">
+        <div class="row">
+                <div class="col-lg-12">
+                    <label class="checkbox-inline"><input type="checkbox" ng-click="addEngine('google')"><img src="static/img/google.png"> Google</label>
+                    <label class="checkbox-inline"><input type="checkbox" ng-click="addEngine('googlelocal')"><img src="static/img/googlelocal.png"> Google Maps</label>
+                    <label class="checkbox-inline"><input type="checkbox" ng-click="addEngine('youtube')"><img src="static/img/youtube.png"> YouTube</label> 
+                    <label class="checkbox-inline"><input type="checkbox" ng-click="addEngine('yahoo')"><img src="static/img/yahoo.png"> Yahoo</label> 
+                    <label class="checkbox-inline"><input type="checkbox" ng-click="addEngine('bing')"><img src="static/img/bing.png"> Bing</label> 
+                    <p style="color: #ff3366" ng-if="no_engine">Please choose at least one Search Engine.</p>
+                </div>
+                
+                <br>
+                <div class="col col-lg-12">
+                    <label>Website URL</label>
+                    <input required type="text" class="full-width" ng-model="reportForm.url">
+                </div>
+                <div class="col col-lg-12">
+                    <label>Keywords</label>
+                    <textarea required placeholder="One keyword per line" class="full-width" ng-model="reportForm.keywords"></textarea>
+                </div>
+                <div class="col col-md-6">
+                    <label>Country</label><br>
+                    <select required class="full-width" ng-options="country.name for country in countries" ng-model="reportForm.country"></select><br>
+                </div>
+                <div class="col col-md-6">
+                    <label>Cities</label><br>
+                    <select required multiple class="full-width" ng-model="reportForm.cities" ng-options="city for city in reportForm.country.topcities"></select>
+                </div>
+        </div>
+        
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" ng-click="ok()">OK</button>
+        <button class="btn btn-danger" ng-click="closeModal()">Cancel</button>
+    </div>
+</form>
